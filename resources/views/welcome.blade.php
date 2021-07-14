@@ -1,3 +1,3 @@
-@extends('layout.app');
+@extends('layout.app')
 
-@section('title', 'CRUD');
+@section('title', 'CRUD')
