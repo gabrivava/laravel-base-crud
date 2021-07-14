@@ -26,7 +26,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        
+        return view('movies.create');
     }
 
     /**
@@ -37,7 +37,14 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //ddd($request->all());
+        $movie = new Movie();
+        $movie->title = $request->title;
+        $movie->poster = $request->poster;
+        $movie->year = $request->year;
+        $movie->description = $request->description;
+        $movie->save();
+        return redirect()->route('movies.index');
     }
 
     /**
@@ -46,9 +53,9 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Movie $movie)
     {
-        //
+        return view('movies.show', compact('movie'));
     }
 
     /**

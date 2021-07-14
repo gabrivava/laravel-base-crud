@@ -26,6 +26,7 @@
                 <div class="links">
                     <a href="{{route('home')}}">home</a>
                     <a href="{{route('movies')}}">movies</a>
+                    <a href="{{route('movies.create')}}">create-movie</a>
                 </div>
 
                 @yield('contenuto')
