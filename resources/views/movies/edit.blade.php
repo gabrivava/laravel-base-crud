@@ -16,16 +16,19 @@
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea class="form-control" name="description" id="description" rows="3">{{$movie->description}}</textarea>
+            <textarea class="form-control" name="description" id="description" rows="3" >{{$movie->description}}</textarea>
         </div>
         <div class="form-group">
-            <label for="poster">Poster Attuale</label>
+            <h4> Poster attuale </h4>
             <img height="200" src="{{$movie->poster}}" alt="">
-            <input type="url" name="poster" id="poster" class="form-control" placeholder="Poster url">
+        </div>
+        <div class="form-group">
+            <label for="poster">Poster URL </label>
+            <input type="url" name="poster" id="poster" class="form-control" placeholder="Poster url" value="{{$movie->poster}}">
         </div>
         <div class="form-group">
             <label for="year">Year</label>
-            <input type="number" name="year" id="year" class="form-control" placeholder="{{$movie->year}}">
+            <input type="number" name="year" id="year" class="form-control" value="{{$movie->year}}">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

@@ -22,7 +22,14 @@
                 <td>{{$movie->description}}</td>
                 <td> <a href="{{route('movies.show', $movie->id)}}">View</a>
                     | <a href="{{route('movies.edit', $movie->id)}}">Edit</a>  
-                    | <a href="">delete</a>
+                    | <a href="">
+                        <form action="{{route('movies.destroy', $movie->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+
+                            <input type="submit" value="Delete">
+                        </form>
+                    </a>
                 </td>
             </tr>
         @endforeach

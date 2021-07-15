@@ -44,13 +44,13 @@ class MovieController extends Controller
         $movie->year = $request->year;
         $movie->description = $request->description;
         $movie->save();
-        return redirect()->route('movies.index');
+        return redirect()->route('movies');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Movie  $movie
      * @return \Illuminate\Http\Response
      */
     public function show(Movie $movie)
@@ -61,7 +61,7 @@ class MovieController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Movie  $movie
      * @return \Illuminate\Http\Response
      */
     public function edit(Movie $movie)
@@ -74,24 +74,24 @@ class MovieController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Movie  $movie
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Movie $movie)
     {
-        $data = $request->all();
-        $movie->update($data);
+        $movie->update($request->all());
         return redirect()->route('movies.show', $movie->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Movie $movie)
     {
-        //
+        $movie->delete();
+        return redirect()->route('movies');
     }
 }
