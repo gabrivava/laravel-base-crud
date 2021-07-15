@@ -20,7 +20,10 @@
                 <td>{{$movie->title}}</td>
                 <td>{{$movie->year}}</td>
                 <td>{{$movie->description}}</td>
-                <td> <a href="{{route('movies.show', $movie->id)}}">View</a> | edit | delete</td>
+                <td> <a href="{{route('movies.show', $movie->id)}}">View</a>
+                    | <a href="{{route('movies.edit', $movie->id)}}">Edit</a>  
+                    | <a href="">delete</a>
+                </td>
             </tr>
         @endforeach
     </tbody>
